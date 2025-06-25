@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  nginx:
+    build: ./nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - service1
+      - service2
+
+  service1:
+    build: ./service_1
+    expose:
+      - "5000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:5000/"]
+      interval: 10s
+      retries: 3
+
+
+  service2:
+    build: ./service_2
+    expose:
+      - "6000"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:6000/"]
+      interval: 10s
+      retries: 3
