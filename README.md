@@ -1,4 +1,4 @@
-# 🐳 Nginx Reverse Proxy with Go & Python Microservices
+# Nginx Reverse Proxy + Docker
 
 This project sets up an Nginx reverse proxy using Docker Compose to route requests to two backend services:
 
